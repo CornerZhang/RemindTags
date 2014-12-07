@@ -54,6 +54,13 @@ static NXRemindTableViewController* only;
 
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    UINavigationController* navigationController = self.navigationController;
+    navigationController.toolbarHidden = NO;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

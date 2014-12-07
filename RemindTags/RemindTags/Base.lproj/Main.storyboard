@@ -64,7 +64,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
-                            <tableViewSection headerTitle="Date &amp; Time" id="sUT-0Y-E7e">
+                            <tableViewSection headerTitle="Tags" footerTitle=" " id="LNG-iG-rcM">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uNW-s7-g3R">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uNW-s7-g3R" id="wel-3y-Btl">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tags here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="934-12-KEr">
+                                                    <rect key="frame" x="8" y="8" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="934-12-KEr" firstAttribute="trailing" secondItem="wel-3y-Btl" secondAttribute="trailingMargin" id="0PE-kQ-5ad"/>
+                                                <constraint firstItem="934-12-KEr" firstAttribute="leading" secondItem="wel-3y-Btl" secondAttribute="leadingMargin" id="bFf-bo-hjm"/>
+                                                <constraint firstItem="934-12-KEr" firstAttribute="top" secondItem="wel-3y-Btl" secondAttribute="topMargin" id="sql-Ax-hKB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Date &amp; Time" footerTitle=" " id="sUT-0Y-E7e">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jre-4O-dIc">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -135,7 +157,6 @@
                                                     </segments>
                                                     <connections>
                                                         <action selector="tapRepeatModeSegments:" destination="zXj-gT-Lg2" eventType="valueChanged" id="QOp-Oi-heo"/>
-                                                        <segue destination="XnW-Df-CgJ" kind="show" id="k1o-o7-pZ0"/>
                                                     </connections>
                                                 </segmentedControl>
                                             </subviews>
@@ -151,7 +172,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zau-M6-cOS" id="DXD-w4-AQR">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="周一 二 三 四 五 六 日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0N-cF-RD3">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="周一 二 三 四 五 六 日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0N-cF-RD3">
                                                     <rect key="frame" x="8" y="12" width="530" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -166,7 +187,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="XnW-Df-CgJ" kind="show" id="fKb-Xn-QpY"/>
+                                                        <segue destination="XnW-Df-CgJ" kind="show" identifier="ToWeekday" id="fKb-Xn-QpY"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -181,45 +202,29 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Tags" id="LNG-iG-rcM">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uNW-s7-g3R">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uNW-s7-g3R" id="wel-3y-Btl">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tags here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="934-12-KEr">
-                                                    <rect key="frame" x="8" y="8" width="584" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="934-12-KEr" firstAttribute="trailing" secondItem="wel-3y-Btl" secondAttribute="trailingMargin" id="0PE-kQ-5ad"/>
-                                                <constraint firstItem="934-12-KEr" firstAttribute="leading" secondItem="wel-3y-Btl" secondAttribute="leadingMargin" id="bFf-bo-hjm"/>
-                                                <constraint firstItem="934-12-KEr" firstAttribute="top" secondItem="wel-3y-Btl" secondAttribute="topMargin" id="sql-Ax-hKB"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Sound" id="vD1-F6-rpj">
+                            <tableViewSection headerTitle="Sound" footerTitle=" " id="vD1-F6-rpj">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" id="ZiU-P4-h1M">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZiU-P4-h1M" id="dS7-7X-0MW">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bugu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eG1-dm-cto">
-                                                    <rect key="frame" x="8" y="11" width="41" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bugu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6h-d7-9Og">
+                                                    <rect key="frame" x="8" y="9" width="525" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="K6h-d7-9Og" secondAttribute="trailing" constant="-8" id="4Nu-Go-f5k"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="K6h-d7-9Og" secondAttribute="bottom" constant="-1" id="5v3-cX-2jT"/>
+                                                <constraint firstItem="K6h-d7-9Og" firstAttribute="leading" secondItem="dS7-7X-0MW" secondAttribute="leadingMargin" id="biF-Rl-9ih"/>
+                                                <constraint firstItem="K6h-d7-9Og" firstAttribute="top" secondItem="dS7-7X-0MW" secondAttribute="topMargin" constant="1" id="hMg-22-2XH"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="cZI-7w-Ipg" kind="show" trigger="accessoryAction" id="Cwd-UO-mhk"/>
+                                            <segue destination="cZI-7w-Ipg" kind="show" identifier="ToSoundLibrary" trigger="accessoryAction" id="Cwd-UO-mhk"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -240,7 +245,7 @@
                     <connections>
                         <outlet property="dateTimePicker" destination="VVb-T6-4I1" id="z2C-Ro-7xQ"/>
                         <outlet property="repeatModeSegmentedControl" destination="ZZ3-CK-9Cp" id="xqe-71-pBd"/>
-                        <outlet property="soundName" destination="eG1-dm-cto" id="flR-8m-kMT"/>
+                        <outlet property="soundName" destination="K6h-d7-9Og" id="U2o-xl-4RV"/>
                         <outlet property="timeConfigState" destination="bbY-wE-3Uh" id="IN1-Sp-VDO"/>
                         <outlet property="timeConfigStatusLabel" destination="qrm-E0-hJv" id="mEz-BU-BS3"/>
                         <outlet property="weekdaysLabel" destination="E0N-cF-RD3" id="fUn-fm-gcd"/>
@@ -248,18 +253,18 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N87-IT-Kde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1266" y="454"/>
+            <point key="canvasLocation" x="1266" y="448"/>
         </scene>
         <!--Sound-->
         <scene sceneID="W1c-ih-nbG">
             <objects>
-                <tableViewController id="cZI-7w-Ipg" sceneMemberID="viewController">
+                <tableViewController id="cZI-7w-Ipg" customClass="NXSoundTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xoC-7D-Z31">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SoundItemCell" textLabel="kTE-qO-Om4" style="IBUITableViewCellStyleDefault" id="xVb-fl-eLM">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MusicCell" textLabel="kTE-qO-Om4" style="IBUITableViewCellStyleDefault" id="xVb-fl-eLM" customClass="NXSoundTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xVb-fl-eLM" id="era-77-ajy">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -270,7 +275,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.89999999999999991" translatesAutoresizingMaskIntoConstraints="NO" id="pWe-4w-Tow">
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="pWe-4w-Tow">
                                             <rect key="frame" x="0.0" y="40" width="600" height="3"/>
                                         </progressView>
                                     </subviews>
@@ -280,6 +285,10 @@
                                         <constraint firstItem="pWe-4w-Tow" firstAttribute="leading" secondItem="era-77-ajy" secondAttribute="leading" id="zct-g3-ngT"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="musicName" destination="kTE-qO-Om4" id="Yf7-vI-aoz"/>
+                                    <outlet property="playProgress" destination="pWe-4w-Tow" id="BIt-1G-ZN9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -288,8 +297,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sound" id="Cdx-Ek-3Gz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6cG-Xp-nag"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6cG-Xp-nag">
+                            <connections>
+                                <action selector="tapSaveButton:" destination="cZI-7w-Ipg" id="JmG-b4-9cF"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="saveBarItem" destination="6cG-Xp-nag" id="8nG-f9-9aK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0aH-vE-Je5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -298,16 +314,25 @@
         <!--Weekdays-->
         <scene sceneID="O4R-Zn-Vbt">
             <objects>
-                <tableViewController id="XnW-Df-CgJ" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWw-g8-JEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="XnW-Df-CgJ" customClass="NXWeekdaysTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ike-me-jOw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeekdayCell" id="nOu-Rj-bcJ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeekdayCell" textLabel="uOa-kt-4XB" style="IBUITableViewCellStyleDefault" id="nOu-Rj-bcJ">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nOu-Rj-bcJ" id="rUv-qr-r8f">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uOa-kt-4XB">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -317,10 +342,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Weekdays" id="YQN-1I-CcE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Izc-6j-x6i"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Izc-6j-x6i">
+                            <connections>
+                                <action selector="tapSaveButton:" destination="XnW-Df-CgJ" id="9ta-Ys-h1b"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="Izc-6j-x6i" id="4rk-2D-Epj"/>
+                    </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IWw-g8-JEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2054" y="228"/>
         </scene>
@@ -344,7 +375,4 @@
             <point key="canvasLocation" x="-292" y="454"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="k1o-o7-pZ0"/>
-    </inferredMetricsTieBreakers>
 </document>

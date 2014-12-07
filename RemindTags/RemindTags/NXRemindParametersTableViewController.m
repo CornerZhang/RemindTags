@@ -7,11 +7,10 @@
 //
 
 #import "NXRemindParametersTableViewController.h"
-#import "CZStaticTableViewManipulator.h"
-//#import "NXWeekdaysConfigTableViewController.h"
-//#import "NXSoundLibraryTableViewController.h"
 #import "NXRemindCenter.h"
-//#import "NXMusicItem.h"
+#import "NXWeekdaysTableViewController.h"
+#import "NXSoundTableViewController.h"
+#import "NXMusicItem.h"
 
 @interface NXRemindParametersTableViewController ()
 @property (weak, nonatomic) NXRemindCenter* remindCenter;
@@ -21,7 +20,6 @@
 @end
 
 @implementation NXRemindParametersTableViewController
-@synthesize staticTableViewManipulator;
 @synthesize timeConfigStatusLabel;
 @synthesize timeConfigState;
 @synthesize lastTimeConfigState;
@@ -33,20 +31,17 @@
     _remindCenter = [NXRemindCenter sharedInstance];
     _currentItemData = [_remindCenter remindItemAtIndexPath:itemCellIndexPath];
     
-    staticTableViewManipulator = [[CZStaticTableViewManipulator alloc] initWithTableView:self.tableView withController:self];
-    
-    self.tableView.dataSource = staticTableViewManipulator;
-    self.tableView.delegate = staticTableViewManipulator;
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     [self readyRemindItem:_currentItemData];
-    
     [self loadUIData:_currentItemData];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    UINavigationController* navigationController = self.navigationController;
+    navigationController.toolbarHidden = YES;
+    
     [self showRepeatModeCell: _repeatModeSegmentedControl.selectedSegmentIndex];
     [self showWeekdaysCell: _repeatModeSegmentedControl.selectedSegmentIndex==RMRepeatMode_Weekdays];
     [self showSoundSection: timeConfigState.selectedSegmentIndex==TCS_Remind];
@@ -102,13 +97,9 @@ enum timeConfigState_e {
 };
 
 - (void)loadUIData:(RemindItem*)item {
-    // navi title
-    NSAssert(_currentItemData.name!=nil, @"RemindItem.name == nil");
-    
+    // navi bar
     self.title = _currentItemData.name;
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    
-    // navi backward
     //self.navigationItem.backBarButtonItem.title = item.ownerPage.name;
     
     // timeConfigState
@@ -149,91 +140,75 @@ enum timeConfigState_e {
     // save
     [_remindCenter saveContextWhenChanged];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    //[self.navigationController popViewControllerAnimated:YES];
 }
-
-typedef NSIndexPath* (^IndexPathValue)();
-
-const NSUInteger sectionNumberTime = 0;
-IndexPathValue ConstIndexPathDateTimeConfigState = ^() { return [NSIndexPath indexPathForRow:0 inSection:sectionNumberTime]; };
-//IndexPathValue ConstIndexPathTimeZone = ^() { return [NSIndexPath indexPathForRow:1 inSection:0]; };
-IndexPathValue ConstIndexPathDateTime = ^() { return [NSIndexPath indexPathForRow:1 inSection:sectionNumberTime]; };
-IndexPathValue ConstIndexPathRepeatMode = ^() { return [NSIndexPath indexPathForRow:2 inSection:sectionNumberTime]; };
-IndexPathValue ConstIndexPathWeekdaysTitle = ^() { return [NSIndexPath indexPathForRow:3 inSection:sectionNumberTime]; };
-
-const NSUInteger sectionNumberPage = 1;
-IndexPathValue ConstIndexPathPageName = ^() { return [NSIndexPath indexPathForRow:0 inSection:sectionNumberPage]; };
-
-const NSUInteger sectionNumberSound = 2;
-IndexPathValue ConstIndexPathSoundName = ^() { return [NSIndexPath indexPathForRow:0 inSection:sectionNumberSound]; };
-
 
 - (void)showDateTimeCells:(BOOL)show {
     
-    if (show) {
-        NSUInteger repeatMode = [_currentItemData getRepeatModeMask];
-        if (![staticTableViewManipulator isRowVisible:ConstIndexPathDateTime()]) {
-            //[staticTableViewManipulator insertRowsAtIndexPaths:@[ConstIndexPathTimeZone()] withRowAnimation:(UITableViewRowAnimationTop)];
-            [staticTableViewManipulator insertRowsAtIndexPaths:@[ConstIndexPathDateTime()] withRowAnimation:(UITableViewRowAnimationTop)];
-            [staticTableViewManipulator insertRowsAtIndexPaths:@[ConstIndexPathRepeatMode()] withRowAnimation:(UITableViewRowAnimationTop)];
-            
-            [self showWeekdaysCell:repeatMode == RMRepeatMode_Weekdays];
-        }
-        
-        // to UI
-        [_dateTimePicker setDate:_currentItemData.dataTime animated:YES];
-        [self showRepeatModeCell:repeatMode];
-        [self showWeekdaysCell:YES];
-    }else{
-        if ([staticTableViewManipulator isRowVisible:ConstIndexPathDateTime()]) {
-            [staticTableViewManipulator deleteRowsAtIndexPaths:@[//ConstIndexPathTimeZone()
-                                                                 ConstIndexPathDateTime(),
-                                                                 ConstIndexPathRepeatMode()]
-                                              withRowAnimation:(UITableViewRowAnimationTop)];
-            
-            [self showWeekdaysCell:NO];
-        }
-    }
+//    if (show) {
+//        NSUInteger repeatMode = [_currentItemData getRepeatModeMask];
+//        if (![staticTableViewManipulator isRowVisible:ConstIndexPathDateTime()]) {
+//            //[staticTableViewManipulator insertRowsAtIndexPaths:@[ConstIndexPathTimeZone()] withRowAnimation:(UITableViewRowAnimationTop)];
+//            [staticTableViewManipulator insertRowsAtIndexPaths:@[ConstIndexPathDateTime()] withRowAnimation:(UITableViewRowAnimationTop)];
+//            [staticTableViewManipulator insertRowsAtIndexPaths:@[ConstIndexPathRepeatMode()] withRowAnimation:(UITableViewRowAnimationTop)];
+//            
+//            [self showWeekdaysCell:repeatMode == RMRepeatMode_Weekdays];
+//        }
+//        
+//        // to UI
+//        [_dateTimePicker setDate:_currentItemData.dataTime animated:YES];
+//        [self showRepeatModeCell:repeatMode];
+//        [self showWeekdaysCell:YES];
+//    }else{
+//        if ([staticTableViewManipulator isRowVisible:ConstIndexPathDateTime()]) {
+//            [staticTableViewManipulator deleteRowsAtIndexPaths:@[//ConstIndexPathTimeZone()
+//                                                                 ConstIndexPathDateTime(),
+//                                                                 ConstIndexPathRepeatMode()]
+//                                              withRowAnimation:(UITableViewRowAnimationTop)];
+//            
+//            [self showWeekdaysCell:NO];
+//        }
+//    }
 }
 
 - (void)showRepeatModeCell:(NSUInteger)selectedIndex {
-    _repeatModeSegmentedControl.selectedSegmentIndex = selectedIndex;
-    if ([_currentItemData getRepeatModeMask] == RMRepeatMode_Weekdays && [_currentItemData getWeekdaysMask]==0) {
-        _repeatModeSegmentedControl.selectedSegmentIndex = RMRepeatMode_Day;
-    }
+//    _repeatModeSegmentedControl.selectedSegmentIndex = selectedIndex;
+//    if ([_currentItemData getRepeatModeMask] == RMRepeatMode_Weekdays && [_currentItemData getWeekdaysMask]==0) {
+//        _repeatModeSegmentedControl.selectedSegmentIndex = RMRepeatMode_Day;
+//    }
 }
 
 - (void)showWeekdaysCell:(BOOL)show {
-    if (show) {
-        if (![staticTableViewManipulator isRowVisible:ConstIndexPathWeekdaysTitle()]) {
-            [staticTableViewManipulator insertRowsAtIndexPaths:@[ConstIndexPathWeekdaysTitle()] withRowAnimation:(UITableViewRowAnimationTop)];
-        }
-        
-        // to UI
-        NSUInteger lowMask = [_currentItemData getWeekdaysMask];
-        //_weekdaysLabel.text = [NXWeekdaysConfigTableViewController stringFromWeekdaysMask:lowMask];
-    }else{
-        if ([staticTableViewManipulator isRowVisible:ConstIndexPathWeekdaysTitle()]) {
-            [staticTableViewManipulator deleteRowsAtIndexPaths:@[ConstIndexPathWeekdaysTitle()] withRowAnimation:(UITableViewRowAnimationTop)];
-        }
-    }
+//    if (show) {
+//        if (![staticTableViewManipulator isRowVisible:ConstIndexPathWeekdaysTitle()]) {
+//            [staticTableViewManipulator insertRowsAtIndexPaths:@[ConstIndexPathWeekdaysTitle()] withRowAnimation:(UITableViewRowAnimationTop)];
+//        }
+//        
+//        // to UI
+//        NSUInteger lowMask = [_currentItemData getWeekdaysMask];
+//        _weekdaysLabel.text = [NXWeekdaysTableViewController stringFromWeekdaysMask:lowMask];
+//    }else{
+//        if ([staticTableViewManipulator isRowVisible:ConstIndexPathWeekdaysTitle()]) {
+//            [staticTableViewManipulator deleteRowsAtIndexPaths:@[ConstIndexPathWeekdaysTitle()] withRowAnimation:(UITableViewRowAnimationTop)];
+//        }
+//    }
 }
 
 - (void)showSoundSection:(BOOL)show {
-    if (show) {
-        if (![staticTableViewManipulator isSectionVisible:sectionNumberSound]) {
-            [staticTableViewManipulator insertSections:[NSIndexSet indexSetWithIndex:sectionNumberSound]
-                                      withRowAnimation:(UITableViewRowAnimationTop)];
-        }
-        
-        // to UI
-        _soundName.text = _currentItemData.soundName;
-    }else{
-        if ([staticTableViewManipulator isSectionVisible:sectionNumberSound]) {
-            [staticTableViewManipulator deleteSections:[NSIndexSet indexSetWithIndex:sectionNumberSound]
-                                      withRowAnimation:(UITableViewRowAnimationTop)];
-        }
-    }
+//    if (show) {
+//        if (![staticTableViewManipulator isSectionVisible:sectionNumberSound]) {
+//            [staticTableViewManipulator insertSections:[NSIndexSet indexSetWithIndex:sectionNumberSound]
+//                                      withRowAnimation:(UITableViewRowAnimationTop)];
+//        }
+//        
+//        // to UI
+//        _soundName.text = _currentItemData.soundName;
+//    }else{
+//        if ([staticTableViewManipulator isSectionVisible:sectionNumberSound]) {
+//            [staticTableViewManipulator deleteSections:[NSIndexSet indexSetWithIndex:sectionNumberSound]
+//                                      withRowAnimation:(UITableViewRowAnimationTop)];
+//        }
+//    }
 }
 
 - (IBAction)tapTimeConfigState:(UISegmentedControl *)sender {
@@ -241,8 +216,8 @@ IndexPathValue ConstIndexPathSoundName = ^() { return [NSIndexPath indexPathForR
     _currentItemData.timeConfigState = [NSNumber numberWithInteger:sn];
     
     if (sn==TCS_Remind) {
-//        NXMusicItem* defaultMusicItem = [NXMusicItem defaultMusicItem];
-//        _currentItemData.soundName = defaultMusicItem.fileName;
+        NXMusicItem* defaultMusicItem = [NXMusicItem defaultMusicItem];
+        _currentItemData.soundName = defaultMusicItem.fileName;
     }else{
         _currentItemData.soundName = @"";
     }
@@ -301,26 +276,7 @@ IndexPathValue ConstIndexPathSoundName = ^() { return [NSIndexPath indexPathForR
             break;
     }
     
-    // 当选择“每周...”进入选择"具体周几的界面"
-    // 当没有选择此项时，不显示“格式化信息栏”
-    if (sender.selectedSegmentIndex == RMRepeatMode_Weekdays) {
-//        NXWeekdaysConfigTableViewController* weekdaysViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"NXWeekdaysConfigTableViewController"];
-//        weekdaysViewController.remindItem = _currentRemindItem;
-//        
-//        [self.navigationController pushViewController:weekdaysViewController animated:YES];
-    }else{	// other selection
-        [self showWeekdaysCell:NO];
-    }
 }
-
-// 格式化信息栏显示“每周...”的细节内容
-//- (IBAction)tapWeekdaysEdit:(UIButton *)sender {
-//    NXWeekdaysConfigTableViewController* weekdaysViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"NXWeekdaysConfigTableViewController"];
-//    weekdaysViewController.remindItem = _currentRemindItem;
-//    
-//    [self.navigationController pushViewController:weekdaysViewController animated:YES];
-//}
-
 
 #pragma mark - Navigation
 
@@ -328,11 +284,15 @@ IndexPathValue ConstIndexPathSoundName = ^() { return [NSIndexPath indexPathForR
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // tap右侧的“》”回进入音效选择界面，左侧显示选择的音乐名称，默认设置为“布谷鸟”
     
-//    if ( [segue.identifier compare: @"ToSoundLibrary"] == NSOrderedSame ) {
-//        NXSoundLibraryTableViewController* soundLibaray = [segue destinationViewController];
-//        
-//        soundLibaray.remindItem = _currentRemindItem;
-//    }
+    if ( [segue.identifier compare: @"ToSoundLibrary"] == NSOrderedSame ) {
+        NXSoundTableViewController* soundLibaray = [segue destinationViewController];
+        
+        soundLibaray.remindItem = _currentItemData;
+    }else if ( [segue.identifier compare: @"ToWeekday"] == NSOrderedSame ) {
+        NXWeekdaysTableViewController* weekdayViewController = [segue destinationViewController];
+
+        weekdayViewController.remindItem = _currentItemData;
+    }
 }
 
 @end

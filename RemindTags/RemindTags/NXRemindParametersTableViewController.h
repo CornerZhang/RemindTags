@@ -8,11 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class CZStaticTableViewManipulator;
-
 @interface NXRemindParametersTableViewController : UITableViewController
-
-@property (strong, nonatomic) CZStaticTableViewManipulator* staticTableViewManipulator;
 
 @property (strong, nonatomic) IBOutlet UILabel *timeConfigStatusLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *timeConfigState;

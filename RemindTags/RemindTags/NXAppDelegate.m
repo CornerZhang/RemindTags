@@ -8,6 +8,8 @@
 
 #import "NXAppDelegate.h"
 #import "NXRemindCenter.h"
+#import "NXMusicItem.h"
+
 @interface NXAppDelegate ()
 
 @end
@@ -34,7 +36,7 @@ static NXAppDelegate* only = nil;
     NXRemindCenter* remindCenter = [NXRemindCenter sharedInstance];
     [remindCenter initForNotificaions:application withAppDelegate:self withOptions:launchOptions];
     
-    //[NXMusicItem buildLibrayItems];
+    [NXMusicItem buildLibrayItems];
 
 //    NSInteger badge = [UIApplication sharedApplication].applicationIconBadgeNumber;
 
