@@ -30,15 +30,16 @@
 
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    
     [NXRemindTableViewController sharedInstance].selectedCellIndexPath = indexPath;
-    
-    if ( textField.text.length != 0 ) {
-        // 显示info view
-        UITableViewCell* cell = [[NXRemindTableViewController sharedInstance].tableView cellForRowAtIndexPath:indexPath];
-        
-        cell.accessoryType = UITableViewCellAccessoryDetailButton;
+
+    if ( [textField.text compare:@""] == NSOrderedSame ) {
+        return;
     }
+    
+    // 显示info view
+    UITableViewCell* cell = [[NXRemindTableViewController sharedInstance].tableView cellForRowAtIndexPath:indexPath];
+    
+    cell.accessoryType = UITableViewCellAccessoryDetailButton;
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -87,7 +88,7 @@
             newItem.name = textField.text;
             
             [[NXRemindCenter sharedInstance] saveContextWhenChanged];	// be cached to fetchController
-            
+            [[NXRemindTableViewController sharedInstance] updateStatistic];
             //[currentRemindItemsViewController.itemsCount updateDisplay];
             
             textField.text = @"+";

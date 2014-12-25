@@ -12,10 +12,16 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *timeConfigStatusLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *timeConfigState;
+
 // TimeZone | NSLocal ???
+
 @property (strong, nonatomic) IBOutlet UIDatePicker *dateTimePicker;
+
 @property (strong, nonatomic) IBOutlet UISegmentedControl *repeatModeSegmentedControl;
+
 @property (strong, nonatomic) IBOutlet UILabel *weekdaysLabel;
+@property (strong, nonatomic) IBOutlet UIButton *weekdaysEditButton;
+
 @property (strong, nonatomic) IBOutlet UILabel *soundName;
 
 @property (weak, nonatomic) NSIndexPath* itemCellIndexPath;

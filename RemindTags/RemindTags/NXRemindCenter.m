@@ -9,7 +9,7 @@
 #import "NXRemindCenter.h"
 #import "NXAppDelegate.h"
 //#import "NXFetchedRemindItemsController.h"
-//#import "NXMusicItem.h"
+#import "NXMusicItem.h"
 
 NSString* const kRemindItemNameKey = @"ItemName";
 
@@ -192,8 +192,10 @@ static NXRemindCenter* only = nil;
 }
 
 - (void)		deleteRemindItem:(RemindItem*)item fromTag:(Tag*)tag {
-    [tag removeAttachedItemsObject:item];
-    [item removeWithTagsObject:tag];
+    if (tag) {
+        [tag removeAttachedItemsObject:item];
+        [item removeWithTagsObject:tag];
+    }
     
     [self.managedObjectContext deleteObject:item];
     
@@ -299,7 +301,7 @@ static NXRemindCenter* only = nil;
     foundNotification.timeZone = [NSTimeZone defaultTimeZone];
     foundNotification.repeatInterval = [self systemRepeatInterval:[msg getRepeatModeMask]];
     foundNotification.repeatCalendar = [NSCalendar currentCalendar];
-    //foundNotification = [NXMusicItem sourcePathOfMusicItem:msg.soundName];
+    foundNotification.soundName = [NXMusicItem sourceAppPathOfMusicItem:msg.soundName];
     foundNotification.hasAction = YES;
     foundNotification.alertAction = @"OK";
     foundNotification.alertBody = msg.name;
@@ -341,7 +343,6 @@ static NXRemindCenter* only = nil;
 #if DEBUG
         NSLog(@"Running %@ '%@' -- app badge: %ld", self.class, NSStringFromSelector(_cmd), (long)[UIApplication sharedApplication].applicationIconBadgeNumber);
 #endif
-
     }
 }
 

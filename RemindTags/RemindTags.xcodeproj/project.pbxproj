@@ -7,30 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65A99E651A4B046400CE515E /* Bubbling_Brook.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E511A4B046400CE515E /* Bubbling_Brook.aif */; };
+		65A99E661A4B046400CE515E /* Camping_trip.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E521A4B046400CE515E /* Camping_trip.aif */; };
+		65A99E671A4B046400CE515E /* Constant_nudge.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E531A4B046400CE515E /* Constant_nudge.aif */; };
+		65A99E681A4B046400CE515E /* Dance_club_dream.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E541A4B046400CE515E /* Dance_club_dream.aif */; };
+		65A99E691A4B046400CE515E /* Early_bird.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E551A4B046400CE515E /* Early_bird.aif */; };
+		65A99E6A1A4B046400CE515E /* Gentle_chimes.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E561A4B046400CE515E /* Gentle_chimes.aif */; };
+		65A99E6B1A4B046400CE515E /* Grandmas_house.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E571A4B046400CE515E /* Grandmas_house.aif */; };
+		65A99E6C1A4B046400CE515E /* Happy_melody.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E581A4B046400CE515E /* Happy_melody.aif */; };
+		65A99E6D1A4B046400CE515E /* Jungle_Morning.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E591A4B046400CE515E /* Jungle_Morning.aif */; };
+		65A99E6E1A4B046400CE515E /* Morning_news.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E5A1A4B046400CE515E /* Morning_news.aif */; };
+		65A99E6F1A4B046400CE515E /* Retro_digital.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E5B1A4B046400CE515E /* Retro_digital.aif */; };
+		65A99E701A4B046400CE515E /* Rise Alarm M3.5.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E5C1A4B046400CE515E /* Rise Alarm M3.5.aif */; };
+		65A99E711A4B046400CE515E /* Rise M1.6.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E5D1A4B046400CE515E /* Rise M1.6.aif */; };
+		65A99E721A4B046400CE515E /* Rise M2.6.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E5E1A4B046400CE515E /* Rise M2.6.aif */; };
+		65A99E731A4B046400CE515E /* Rise M4.3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E5F1A4B046400CE515E /* Rise M4.3.aif */; };
+		65A99E741A4B046400CE515E /* Rise M5.2.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E601A4B046400CE515E /* Rise M5.2.aif */; };
+		65A99E751A4B046400CE515E /* Rise_and_shine.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E611A4B046400CE515E /* Rise_and_shine.aif */; };
+		65A99E761A4B046400CE515E /* Seaside_Waves.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E621A4B046400CE515E /* Seaside_Waves.aif */; };
+		65A99E771A4B046400CE515E /* Traveling_winds.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E631A4B046400CE515E /* Traveling_winds.aif */; };
+		65A99E781A4B046400CE515E /* Walking_at_dawn.aif in Resources */ = {isa = PBXBuildFile; fileRef = 65A99E641A4B046400CE515E /* Walking_at_dawn.aif */; };
 		65B6D4DB1A32AC4C007BD9CE /* NXMusicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B6D4D61A32AC4C007BD9CE /* NXMusicItem.m */; };
 		65B6D4DC1A32AC4C007BD9CE /* NXSoundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B6D4D81A32AC4C007BD9CE /* NXSoundTableViewController.m */; };
 		65B6D4DD1A32AC4C007BD9CE /* NXSoundTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B6D4DA1A32AC4C007BD9CE /* NXSoundTableViewCell.m */; };
-		65B6D4F41A32AC69007BD9CE /* Ancient_temple.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4DF1A32AC69007BD9CE /* Ancient_temple.mp3 */; };
-		65B6D4F51A32AC69007BD9CE /* Babbling_Brook.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4E01A32AC69007BD9CE /* Babbling_Brook.mp3 */; };
-		65B6D4F61A32AC69007BD9CE /* Calm_Rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4E11A32AC69007BD9CE /* Calm_Rise.mp3 */; };
-		65B6D4F71A32AC69007BD9CE /* Camping_trip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4E21A32AC69007BD9CE /* Camping_trip.mp3 */; };
-		65B6D4F81A32AC69007BD9CE /* Constant_nudge.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4E31A32AC69007BD9CE /* Constant_nudge.mp3 */; };
-		65B6D4F91A32AC69007BD9CE /* Dance_club_dream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4E41A32AC69007BD9CE /* Dance_club_dream.mp3 */; };
-		65B6D4FA1A32AC69007BD9CE /* Early_bird.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4E51A32AC69007BD9CE /* Early_bird.mp3 */; };
-		65B6D4FB1A32AC69007BD9CE /* Easy_Morning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4E61A32AC69007BD9CE /* Easy_Morning.mp3 */; };
-		65B6D4FC1A32AC69007BD9CE /* First_Light.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4E71A32AC69007BD9CE /* First_Light.mp3 */; };
-		65B6D4FD1A32AC69007BD9CE /* Gentle_chimes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4E81A32AC69007BD9CE /* Gentle_chimes.mp3 */; };
-		65B6D4FE1A32AC69007BD9CE /* Grandmas_house.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4E91A32AC69007BD9CE /* Grandmas_house.mp3 */; };
-		65B6D4FF1A32AC69007BD9CE /* Happy_melody.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4EA1A32AC69007BD9CE /* Happy_melody.mp3 */; };
-		65B6D5001A32AC69007BD9CE /* Jungle_Morning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4EB1A32AC69007BD9CE /* Jungle_Morning.mp3 */; };
-		65B6D5011A32AC69007BD9CE /* Morning_news.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4EC1A32AC69007BD9CE /* Morning_news.mp3 */; };
-		65B6D5021A32AC69007BD9CE /* New_Day.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4ED1A32AC69007BD9CE /* New_Day.mp3 */; };
-		65B6D5031A32AC69007BD9CE /* Retro_digital.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4EE1A32AC69007BD9CE /* Retro_digital.mp3 */; };
-		65B6D5041A32AC69007BD9CE /* Rise_and_shine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4EF1A32AC69007BD9CE /* Rise_and_shine.mp3 */; };
-		65B6D5051A32AC69007BD9CE /* Seaside_Waves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4F01A32AC69007BD9CE /* Seaside_Waves.mp3 */; };
-		65B6D5061A32AC69007BD9CE /* Traveling_winds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4F11A32AC69007BD9CE /* Traveling_winds.mp3 */; };
-		65B6D5071A32AC69007BD9CE /* Waking_Dream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4F21A32AC69007BD9CE /* Waking_Dream.mp3 */; };
-		65B6D5081A32AC69007BD9CE /* Walking_at_dawn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 65B6D4F31A32AC69007BD9CE /* Walking_at_dawn.mp3 */; };
 		65B6D50B1A32ACAE007BD9CE /* NXWeekdaysTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B6D50A1A32ACAE007BD9CE /* NXWeekdaysTableViewController.m */; };
 		65EDA5DF1A31810600333998 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EDA5DE1A31810600333998 /* main.m */; };
 		65EDA5E21A31810600333998 /* NXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EDA5E11A31810600333998 /* NXAppDelegate.m */; };
@@ -60,33 +59,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		65A99E511A4B046400CE515E /* Bubbling_Brook.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Bubbling_Brook.aif; path = Sounds/Bubbling_Brook.aif; sourceTree = "<group>"; };
+		65A99E521A4B046400CE515E /* Camping_trip.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Camping_trip.aif; path = Sounds/Camping_trip.aif; sourceTree = "<group>"; };
+		65A99E531A4B046400CE515E /* Constant_nudge.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Constant_nudge.aif; path = Sounds/Constant_nudge.aif; sourceTree = "<group>"; };
+		65A99E541A4B046400CE515E /* Dance_club_dream.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Dance_club_dream.aif; path = Sounds/Dance_club_dream.aif; sourceTree = "<group>"; };
+		65A99E551A4B046400CE515E /* Early_bird.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Early_bird.aif; path = Sounds/Early_bird.aif; sourceTree = "<group>"; };
+		65A99E561A4B046400CE515E /* Gentle_chimes.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Gentle_chimes.aif; path = Sounds/Gentle_chimes.aif; sourceTree = "<group>"; };
+		65A99E571A4B046400CE515E /* Grandmas_house.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Grandmas_house.aif; path = Sounds/Grandmas_house.aif; sourceTree = "<group>"; };
+		65A99E581A4B046400CE515E /* Happy_melody.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Happy_melody.aif; path = Sounds/Happy_melody.aif; sourceTree = "<group>"; };
+		65A99E591A4B046400CE515E /* Jungle_Morning.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Jungle_Morning.aif; path = Sounds/Jungle_Morning.aif; sourceTree = "<group>"; };
+		65A99E5A1A4B046400CE515E /* Morning_news.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Morning_news.aif; path = Sounds/Morning_news.aif; sourceTree = "<group>"; };
+		65A99E5B1A4B046400CE515E /* Retro_digital.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Retro_digital.aif; path = Sounds/Retro_digital.aif; sourceTree = "<group>"; };
+		65A99E5C1A4B046400CE515E /* Rise Alarm M3.5.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rise Alarm M3.5.aif"; path = "Sounds/Rise Alarm M3.5.aif"; sourceTree = "<group>"; };
+		65A99E5D1A4B046400CE515E /* Rise M1.6.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rise M1.6.aif"; path = "Sounds/Rise M1.6.aif"; sourceTree = "<group>"; };
+		65A99E5E1A4B046400CE515E /* Rise M2.6.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rise M2.6.aif"; path = "Sounds/Rise M2.6.aif"; sourceTree = "<group>"; };
+		65A99E5F1A4B046400CE515E /* Rise M4.3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rise M4.3.aif"; path = "Sounds/Rise M4.3.aif"; sourceTree = "<group>"; };
+		65A99E601A4B046400CE515E /* Rise M5.2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rise M5.2.aif"; path = "Sounds/Rise M5.2.aif"; sourceTree = "<group>"; };
+		65A99E611A4B046400CE515E /* Rise_and_shine.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Rise_and_shine.aif; path = Sounds/Rise_and_shine.aif; sourceTree = "<group>"; };
+		65A99E621A4B046400CE515E /* Seaside_Waves.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Seaside_Waves.aif; path = Sounds/Seaside_Waves.aif; sourceTree = "<group>"; };
+		65A99E631A4B046400CE515E /* Traveling_winds.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Traveling_winds.aif; path = Sounds/Traveling_winds.aif; sourceTree = "<group>"; };
+		65A99E641A4B046400CE515E /* Walking_at_dawn.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = Walking_at_dawn.aif; path = Sounds/Walking_at_dawn.aif; sourceTree = "<group>"; };
 		65B6D4D51A32AC4C007BD9CE /* NXMusicItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXMusicItem.h; sourceTree = "<group>"; };
 		65B6D4D61A32AC4C007BD9CE /* NXMusicItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXMusicItem.m; sourceTree = "<group>"; };
 		65B6D4D71A32AC4C007BD9CE /* NXSoundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXSoundTableViewController.h; sourceTree = "<group>"; };
 		65B6D4D81A32AC4C007BD9CE /* NXSoundTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXSoundTableViewController.m; sourceTree = "<group>"; };
 		65B6D4D91A32AC4C007BD9CE /* NXSoundTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXSoundTableViewCell.h; sourceTree = "<group>"; };
 		65B6D4DA1A32AC4C007BD9CE /* NXSoundTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXSoundTableViewCell.m; sourceTree = "<group>"; };
-		65B6D4DF1A32AC69007BD9CE /* Ancient_temple.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Ancient_temple.mp3; path = Sounds/Ancient_temple.mp3; sourceTree = "<group>"; };
-		65B6D4E01A32AC69007BD9CE /* Babbling_Brook.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Babbling_Brook.mp3; path = Sounds/Babbling_Brook.mp3; sourceTree = "<group>"; };
-		65B6D4E11A32AC69007BD9CE /* Calm_Rise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Calm_Rise.mp3; path = Sounds/Calm_Rise.mp3; sourceTree = "<group>"; };
-		65B6D4E21A32AC69007BD9CE /* Camping_trip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Camping_trip.mp3; path = Sounds/Camping_trip.mp3; sourceTree = "<group>"; };
-		65B6D4E31A32AC69007BD9CE /* Constant_nudge.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Constant_nudge.mp3; path = Sounds/Constant_nudge.mp3; sourceTree = "<group>"; };
-		65B6D4E41A32AC69007BD9CE /* Dance_club_dream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Dance_club_dream.mp3; path = Sounds/Dance_club_dream.mp3; sourceTree = "<group>"; };
-		65B6D4E51A32AC69007BD9CE /* Early_bird.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Early_bird.mp3; path = Sounds/Early_bird.mp3; sourceTree = "<group>"; };
-		65B6D4E61A32AC69007BD9CE /* Easy_Morning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Easy_Morning.mp3; path = Sounds/Easy_Morning.mp3; sourceTree = "<group>"; };
-		65B6D4E71A32AC69007BD9CE /* First_Light.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = First_Light.mp3; path = Sounds/First_Light.mp3; sourceTree = "<group>"; };
-		65B6D4E81A32AC69007BD9CE /* Gentle_chimes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Gentle_chimes.mp3; path = Sounds/Gentle_chimes.mp3; sourceTree = "<group>"; };
-		65B6D4E91A32AC69007BD9CE /* Grandmas_house.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Grandmas_house.mp3; path = Sounds/Grandmas_house.mp3; sourceTree = "<group>"; };
-		65B6D4EA1A32AC69007BD9CE /* Happy_melody.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Happy_melody.mp3; path = Sounds/Happy_melody.mp3; sourceTree = "<group>"; };
-		65B6D4EB1A32AC69007BD9CE /* Jungle_Morning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Jungle_Morning.mp3; path = Sounds/Jungle_Morning.mp3; sourceTree = "<group>"; };
-		65B6D4EC1A32AC69007BD9CE /* Morning_news.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Morning_news.mp3; path = Sounds/Morning_news.mp3; sourceTree = "<group>"; };
-		65B6D4ED1A32AC69007BD9CE /* New_Day.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = New_Day.mp3; path = Sounds/New_Day.mp3; sourceTree = "<group>"; };
-		65B6D4EE1A32AC69007BD9CE /* Retro_digital.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Retro_digital.mp3; path = Sounds/Retro_digital.mp3; sourceTree = "<group>"; };
-		65B6D4EF1A32AC69007BD9CE /* Rise_and_shine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Rise_and_shine.mp3; path = Sounds/Rise_and_shine.mp3; sourceTree = "<group>"; };
-		65B6D4F01A32AC69007BD9CE /* Seaside_Waves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Seaside_Waves.mp3; path = Sounds/Seaside_Waves.mp3; sourceTree = "<group>"; };
-		65B6D4F11A32AC69007BD9CE /* Traveling_winds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Traveling_winds.mp3; path = Sounds/Traveling_winds.mp3; sourceTree = "<group>"; };
-		65B6D4F21A32AC69007BD9CE /* Waking_Dream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Waking_Dream.mp3; path = Sounds/Waking_Dream.mp3; sourceTree = "<group>"; };
-		65B6D4F31A32AC69007BD9CE /* Walking_at_dawn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Walking_at_dawn.mp3; path = Sounds/Walking_at_dawn.mp3; sourceTree = "<group>"; };
 		65B6D5091A32ACAE007BD9CE /* NXWeekdaysTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXWeekdaysTableViewController.h; sourceTree = "<group>"; };
 		65B6D50A1A32ACAE007BD9CE /* NXWeekdaysTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXWeekdaysTableViewController.m; sourceTree = "<group>"; };
 		65EDA5D91A31810600333998 /* RemindTags.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemindTags.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,27 +161,26 @@
 		65B6D4DE1A32AC50007BD9CE /* MediaFile */ = {
 			isa = PBXGroup;
 			children = (
-				65B6D4DF1A32AC69007BD9CE /* Ancient_temple.mp3 */,
-				65B6D4E01A32AC69007BD9CE /* Babbling_Brook.mp3 */,
-				65B6D4E11A32AC69007BD9CE /* Calm_Rise.mp3 */,
-				65B6D4E21A32AC69007BD9CE /* Camping_trip.mp3 */,
-				65B6D4E31A32AC69007BD9CE /* Constant_nudge.mp3 */,
-				65B6D4E41A32AC69007BD9CE /* Dance_club_dream.mp3 */,
-				65B6D4E51A32AC69007BD9CE /* Early_bird.mp3 */,
-				65B6D4E61A32AC69007BD9CE /* Easy_Morning.mp3 */,
-				65B6D4E71A32AC69007BD9CE /* First_Light.mp3 */,
-				65B6D4E81A32AC69007BD9CE /* Gentle_chimes.mp3 */,
-				65B6D4E91A32AC69007BD9CE /* Grandmas_house.mp3 */,
-				65B6D4EA1A32AC69007BD9CE /* Happy_melody.mp3 */,
-				65B6D4EB1A32AC69007BD9CE /* Jungle_Morning.mp3 */,
-				65B6D4EC1A32AC69007BD9CE /* Morning_news.mp3 */,
-				65B6D4ED1A32AC69007BD9CE /* New_Day.mp3 */,
-				65B6D4EE1A32AC69007BD9CE /* Retro_digital.mp3 */,
-				65B6D4EF1A32AC69007BD9CE /* Rise_and_shine.mp3 */,
-				65B6D4F01A32AC69007BD9CE /* Seaside_Waves.mp3 */,
-				65B6D4F11A32AC69007BD9CE /* Traveling_winds.mp3 */,
-				65B6D4F21A32AC69007BD9CE /* Waking_Dream.mp3 */,
-				65B6D4F31A32AC69007BD9CE /* Walking_at_dawn.mp3 */,
+				65A99E511A4B046400CE515E /* Bubbling_Brook.aif */,
+				65A99E521A4B046400CE515E /* Camping_trip.aif */,
+				65A99E531A4B046400CE515E /* Constant_nudge.aif */,
+				65A99E541A4B046400CE515E /* Dance_club_dream.aif */,
+				65A99E551A4B046400CE515E /* Early_bird.aif */,
+				65A99E561A4B046400CE515E /* Gentle_chimes.aif */,
+				65A99E571A4B046400CE515E /* Grandmas_house.aif */,
+				65A99E581A4B046400CE515E /* Happy_melody.aif */,
+				65A99E591A4B046400CE515E /* Jungle_Morning.aif */,
+				65A99E5A1A4B046400CE515E /* Morning_news.aif */,
+				65A99E5B1A4B046400CE515E /* Retro_digital.aif */,
+				65A99E5C1A4B046400CE515E /* Rise Alarm M3.5.aif */,
+				65A99E5D1A4B046400CE515E /* Rise M1.6.aif */,
+				65A99E5E1A4B046400CE515E /* Rise M2.6.aif */,
+				65A99E5F1A4B046400CE515E /* Rise M4.3.aif */,
+				65A99E601A4B046400CE515E /* Rise M5.2.aif */,
+				65A99E611A4B046400CE515E /* Rise_and_shine.aif */,
+				65A99E621A4B046400CE515E /* Seaside_Waves.aif */,
+				65A99E631A4B046400CE515E /* Traveling_winds.aif */,
+				65A99E641A4B046400CE515E /* Walking_at_dawn.aif */,
 			);
 			name = MediaFile;
 			sourceTree = "<group>";
@@ -269,12 +266,12 @@
 		65EDA6271A31948A00333998 /* RemindItems */ = {
 			isa = PBXGroup;
 			children = (
-				65EDA6021A31815E00333998 /* NXRemindTableViewController.h */,
-				65EDA6031A31815E00333998 /* NXRemindTableViewController.m */,
 				65EDA6281A31965A00333998 /* NXRemindTableViewCell.h */,
 				65EDA6291A31965A00333998 /* NXRemindTableViewCell.m */,
 				65EDA62B1A319BF700333998 /* NXRemindInputText.h */,
 				65EDA62C1A319BF700333998 /* NXRemindInputText.m */,
+				65EDA6021A31815E00333998 /* NXRemindTableViewController.h */,
+				65EDA6031A31815E00333998 /* NXRemindTableViewController.m */,
 			);
 			name = RemindItems;
 			sourceTree = "<group>";
@@ -337,6 +334,11 @@
 				TargetAttributes = {
 					65EDA5D81A31810600333998 = {
 						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					65EDA5F11A31810600333998 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -368,30 +370,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65B6D4FE1A32AC69007BD9CE /* Grandmas_house.mp3 in Resources */,
-				65B6D5061A32AC69007BD9CE /* Traveling_winds.mp3 in Resources */,
-				65B6D4FC1A32AC69007BD9CE /* First_Light.mp3 in Resources */,
-				65B6D4F61A32AC69007BD9CE /* Calm_Rise.mp3 in Resources */,
-				65B6D5041A32AC69007BD9CE /* Rise_and_shine.mp3 in Resources */,
-				65B6D4F91A32AC69007BD9CE /* Dance_club_dream.mp3 in Resources */,
-				65B6D4F41A32AC69007BD9CE /* Ancient_temple.mp3 in Resources */,
-				65B6D4F51A32AC69007BD9CE /* Babbling_Brook.mp3 in Resources */,
-				65B6D5051A32AC69007BD9CE /* Seaside_Waves.mp3 in Resources */,
-				65B6D4FB1A32AC69007BD9CE /* Easy_Morning.mp3 in Resources */,
-				65B6D4FF1A32AC69007BD9CE /* Happy_melody.mp3 in Resources */,
-				65B6D5081A32AC69007BD9CE /* Walking_at_dawn.mp3 in Resources */,
-				65B6D4F71A32AC69007BD9CE /* Camping_trip.mp3 in Resources */,
-				65B6D5011A32AC69007BD9CE /* Morning_news.mp3 in Resources */,
-				65B6D4F81A32AC69007BD9CE /* Constant_nudge.mp3 in Resources */,
+				65A99E711A4B046400CE515E /* Rise M1.6.aif in Resources */,
+				65A99E761A4B046400CE515E /* Seaside_Waves.aif in Resources */,
+				65A99E6B1A4B046400CE515E /* Grandmas_house.aif in Resources */,
+				65A99E6A1A4B046400CE515E /* Gentle_chimes.aif in Resources */,
+				65A99E751A4B046400CE515E /* Rise_and_shine.aif in Resources */,
 				65EDA5E81A31810600333998 /* Main.storyboard in Resources */,
-				65B6D5071A32AC69007BD9CE /* Waking_Dream.mp3 in Resources */,
-				65B6D4FA1A32AC69007BD9CE /* Early_bird.mp3 in Resources */,
+				65A99E691A4B046400CE515E /* Early_bird.aif in Resources */,
+				65A99E781A4B046400CE515E /* Walking_at_dawn.aif in Resources */,
+				65A99E651A4B046400CE515E /* Bubbling_Brook.aif in Resources */,
+				65A99E741A4B046400CE515E /* Rise M5.2.aif in Resources */,
+				65A99E731A4B046400CE515E /* Rise M4.3.aif in Resources */,
+				65A99E671A4B046400CE515E /* Constant_nudge.aif in Resources */,
+				65A99E701A4B046400CE515E /* Rise Alarm M3.5.aif in Resources */,
+				65A99E6F1A4B046400CE515E /* Retro_digital.aif in Resources */,
+				65A99E721A4B046400CE515E /* Rise M2.6.aif in Resources */,
 				65EDA5ED1A31810600333998 /* LaunchScreen.xib in Resources */,
-				65B6D4FD1A32AC69007BD9CE /* Gentle_chimes.mp3 in Resources */,
-				65B6D5001A32AC69007BD9CE /* Jungle_Morning.mp3 in Resources */,
-				65B6D5021A32AC69007BD9CE /* New_Day.mp3 in Resources */,
+				65A99E661A4B046400CE515E /* Camping_trip.aif in Resources */,
+				65A99E6C1A4B046400CE515E /* Happy_melody.aif in Resources */,
+				65A99E771A4B046400CE515E /* Traveling_winds.aif in Resources */,
 				65EDA5EA1A31810600333998 /* Images.xcassets in Resources */,
-				65B6D5031A32AC69007BD9CE /* Retro_digital.mp3 in Resources */,
+				65A99E6D1A4B046400CE515E /* Jungle_Morning.aif in Resources */,
+				65A99E681A4B046400CE515E /* Dance_club_dream.aif in Resources */,
+				65A99E6E1A4B046400CE515E /* Morning_news.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

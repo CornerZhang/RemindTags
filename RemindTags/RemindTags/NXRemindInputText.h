@@ -7,7 +7,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NXRemindInputText : UITextField <UITextFieldDelegate>
-@property (weak, nonatomic) NSIndexPath* indexPath;
+@property (strong, nonatomic) NSIndexPath* indexPath;
 
 
 @end

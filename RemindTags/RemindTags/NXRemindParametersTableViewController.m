@@ -16,6 +16,8 @@
 @property (weak, nonatomic) NXRemindCenter* remindCenter;
 @property (weak, nonatomic) RemindItem* currentItemData;
 @property (assign, nonatomic) NSUInteger lastTimeConfigState;
+@property (strong, nonatomic) IBOutlet UITableViewCell *soundCell;
+@property (strong, nonatomic) IBOutlet UITableViewRowAction *soundSection;
 
 @end
 
@@ -39,11 +41,13 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
     UINavigationController* navigationController = self.navigationController;
     navigationController.toolbarHidden = YES;
     
+    [self showDateTimeCells: timeConfigState.selectedSegmentIndex!=TCS_None];
     [self showRepeatModeCell: _repeatModeSegmentedControl.selectedSegmentIndex];
-    [self showWeekdaysCell: _repeatModeSegmentedControl.selectedSegmentIndex==RMRepeatMode_Weekdays];
     [self showSoundSection: timeConfigState.selectedSegmentIndex==TCS_Remind];
 }
 
@@ -114,6 +118,8 @@ enum timeConfigState_e {
 }
 
 - (IBAction)tapSaveBarButtonItem:(UIBarButtonItem *)sender {
+    // tags...
+
     // timeConfigState
     if (timeConfigState.selectedSegmentIndex==TCS_Remind) {
         [_remindCenter postItem:_currentItemData];
@@ -121,9 +127,7 @@ enum timeConfigState_e {
         [_remindCenter cancelItem:_currentItemData];
     }
     
-    // timeZone
-    
-    // ...
+    // timeZone...
     
     // dataTime
     _currentItemData.dataTime = _dateTimePicker.date;
@@ -133,82 +137,68 @@ enum timeConfigState_e {
     
     // weekdaysFlags -- on other UI
     
-    // tags
-    
     // soundName -- on other UI
     
     // save
     [_remindCenter saveContextWhenChanged];
     
-    //[self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)showDateTimeCells:(BOOL)show {
+    [_dateTimePicker setDate:_currentItemData.dataTime animated:YES];
+
+    [UIView animateWithDuration:0.4
+                     animations:^(void) {
+                         _dateTimePicker.enabled = show;
+                         _dateTimePicker.userInteractionEnabled = show;
+                     }
+     ];
     
-//    if (show) {
-//        NSUInteger repeatMode = [_currentItemData getRepeatModeMask];
-//        if (![staticTableViewManipulator isRowVisible:ConstIndexPathDateTime()]) {
-//            //[staticTableViewManipulator insertRowsAtIndexPaths:@[ConstIndexPathTimeZone()] withRowAnimation:(UITableViewRowAnimationTop)];
-//            [staticTableViewManipulator insertRowsAtIndexPaths:@[ConstIndexPathDateTime()] withRowAnimation:(UITableViewRowAnimationTop)];
-//            [staticTableViewManipulator insertRowsAtIndexPaths:@[ConstIndexPathRepeatMode()] withRowAnimation:(UITableViewRowAnimationTop)];
-//            
-//            [self showWeekdaysCell:repeatMode == RMRepeatMode_Weekdays];
-//        }
-//        
-//        // to UI
-//        [_dateTimePicker setDate:_currentItemData.dataTime animated:YES];
-//        [self showRepeatModeCell:repeatMode];
-//        [self showWeekdaysCell:YES];
-//    }else{
-//        if ([staticTableViewManipulator isRowVisible:ConstIndexPathDateTime()]) {
-//            [staticTableViewManipulator deleteRowsAtIndexPaths:@[//ConstIndexPathTimeZone()
-//                                                                 ConstIndexPathDateTime(),
-//                                                                 ConstIndexPathRepeatMode()]
-//                                              withRowAnimation:(UITableViewRowAnimationTop)];
-//            
-//            [self showWeekdaysCell:NO];
-//        }
-//    }
+    [self showRepeatModeCell:show];
 }
 
-- (void)showRepeatModeCell:(NSUInteger)selectedIndex {
-//    _repeatModeSegmentedControl.selectedSegmentIndex = selectedIndex;
-//    if ([_currentItemData getRepeatModeMask] == RMRepeatMode_Weekdays && [_currentItemData getWeekdaysMask]==0) {
-//        _repeatModeSegmentedControl.selectedSegmentIndex = RMRepeatMode_Day;
-//    }
+- (void)showRepeatModeCell:(BOOL)show {
+    NSUInteger repeatMode = [_currentItemData getRepeatModeMask];
+    
+    _repeatModeSegmentedControl.selectedSegmentIndex = repeatMode;
+    if (repeatMode == RMRepeatMode_Weekdays
+        && [_currentItemData getWeekdaysMask]==0) {
+        _repeatModeSegmentedControl.selectedSegmentIndex = RMRepeatMode_Day;
+    }
+    [UIView animateWithDuration:0.4
+                     animations:^(void) {
+					    _repeatModeSegmentedControl.enabled = show;
+                     }
+     ];
+    
+    [self showWeekdaysCell:repeatMode == RMRepeatMode_Weekdays];
 }
 
 - (void)showWeekdaysCell:(BOOL)show {
-//    if (show) {
-//        if (![staticTableViewManipulator isRowVisible:ConstIndexPathWeekdaysTitle()]) {
-//            [staticTableViewManipulator insertRowsAtIndexPaths:@[ConstIndexPathWeekdaysTitle()] withRowAnimation:(UITableViewRowAnimationTop)];
-//        }
-//        
-//        // to UI
-//        NSUInteger lowMask = [_currentItemData getWeekdaysMask];
-//        _weekdaysLabel.text = [NXWeekdaysTableViewController stringFromWeekdaysMask:lowMask];
-//    }else{
-//        if ([staticTableViewManipulator isRowVisible:ConstIndexPathWeekdaysTitle()]) {
-//            [staticTableViewManipulator deleteRowsAtIndexPaths:@[ConstIndexPathWeekdaysTitle()] withRowAnimation:(UITableViewRowAnimationTop)];
-//        }
-//    }
+    NSUInteger lowMask = [_currentItemData getWeekdaysMask];
+    _weekdaysLabel.text = [NXWeekdaysTableViewController stringFromWeekdaysMask:lowMask];
+    [UIView animateWithDuration:0.4
+                     animations:^(void) {
+                         _weekdaysLabel.enabled = show;
+                         _weekdaysEditButton.enabled = show;
+                     }
+     ];
 }
 
 - (void)showSoundSection:(BOOL)show {
-//    if (show) {
-//        if (![staticTableViewManipulator isSectionVisible:sectionNumberSound]) {
-//            [staticTableViewManipulator insertSections:[NSIndexSet indexSetWithIndex:sectionNumberSound]
-//                                      withRowAnimation:(UITableViewRowAnimationTop)];
-//        }
-//        
-//        // to UI
-//        _soundName.text = _currentItemData.soundName;
-//    }else{
-//        if ([staticTableViewManipulator isSectionVisible:sectionNumberSound]) {
-//            [staticTableViewManipulator deleteSections:[NSIndexSet indexSetWithIndex:sectionNumberSound]
-//                                      withRowAnimation:(UITableViewRowAnimationTop)];
-//        }
-//    }
+    if (show) {
+		_soundName.text = _currentItemData.soundName;
+    }
+    
+    [UIView animateWithDuration:0.4
+                     animations:^(void) {
+                         _soundName.enabled = show;
+                         _soundCell.accessoryType = show? UITableViewCellAccessoryDetailButton : UITableViewCellAccessoryNone;
+                         _soundCell.userInteractionEnabled = show;
+    }
+     ];
+    
 }
 
 - (IBAction)tapTimeConfigState:(UISegmentedControl *)sender {
@@ -222,9 +212,7 @@ enum timeConfigState_e {
         _currentItemData.soundName = @"";
     }
     
-    [self showRepeatModeCell: _repeatModeSegmentedControl.selectedSegmentIndex];
     [self showDateTimeCells: sn!=TCS_None];
-    [self showWeekdaysCell: _repeatModeSegmentedControl.selectedSegmentIndex==RMRepeatMode_Weekdays];
     [self showSoundSection: sn==TCS_Remind];
 }
 
@@ -243,19 +231,22 @@ enum timeConfigState_e {
 #endif
     
     NSUInteger selectedState = sender.selectedSegmentIndex;
+    UIDatePickerMode mode = UIDatePickerModeDateAndTime;
     
     // 循环模式选择时会影响时间选择器的样式
     switch (selectedState) {
         case 0:
         case 1:
         case 2: {
-            _dateTimePicker.datePickerMode = UIDatePickerModeDateAndTime;
+            mode = UIDatePickerModeDateAndTime;
         }   break;
         case 3:
         case 4: {
-            _dateTimePicker.datePickerMode = UIDatePickerModeTime;
+            mode = UIDatePickerModeTime;
         }
     }
+    
+	_dateTimePicker.datePickerMode = mode;
     
     // to store data
     switch (sender.selectedSegmentIndex) {
@@ -276,6 +267,7 @@ enum timeConfigState_e {
             break;
     }
     
+    [self showWeekdaysCell:selectedState==3];
 }
 
 #pragma mark - Navigation

@@ -50,7 +50,7 @@ static NXAppDelegate* only = nil;
     if ([itemName length] > 0){
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:@"Handling the local notification"
+                                                        message:@"Alert Local Noftification!"
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];

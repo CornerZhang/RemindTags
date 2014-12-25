@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NXRemindTableViewController : UITableViewController
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *statisticBarItem;
 
 @property (strong, nonatomic) UIColor*	textNormalColor;
 @property (strong, nonatomic) UIColor*	textTintColor;
@@ -17,5 +18,7 @@
 + (instancetype)	sharedInstance;
 
 - (BOOL)isForTailCell:(NSIndexPath*)indexPath;
+
+- (void)updateStatistic;
 
 @end

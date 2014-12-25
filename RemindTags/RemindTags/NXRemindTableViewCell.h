@@ -17,4 +17,9 @@
 
 @property (weak, nonatomic)	RemindItem* itemData;
 
+- (void)userBuild;
+- (void)userBuildSubTitle;
+
+- (void)doneToggle;
+
 @end

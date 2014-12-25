@@ -19,18 +19,33 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rpP-Vf-ez8" id="Vbe-6b-04Q">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="早起" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tQb-NC-Aid" customClass="NXRemindInputText">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="早起" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tQb-NC-Aid" customClass="NXRemindInputText">
                                             <rect key="frame" x="8" y="8" width="494" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <variation key="widthClass=regular" misplaced="YES">
+                                                <rect key="frame" x="8" y="8" width="694" height="36"/>
+                                            </variation>
                                         </textField>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="上海 2014年11月21日 16:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqg-01-qWT">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海 2014年11月21日 16:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqg-01-qWT">
                                             <rect key="frame" x="8" y="52" width="494" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="widthClass=regular" misplaced="YES">
+                                                <rect key="frame" x="8" y="52" width="694" height="21"/>
+                                            </variation>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="tQb-NC-Aid" secondAttribute="trailing" constant="90" id="3zQ-DY-JPS"/>
+                                        <constraint firstItem="rqg-01-qWT" firstAttribute="trailing" secondItem="tQb-NC-Aid" secondAttribute="trailing" id="4sw-qi-Hxh"/>
+                                        <constraint firstItem="tQb-NC-Aid" firstAttribute="top" secondItem="Vbe-6b-04Q" secondAttribute="topMargin" id="AA3-Eb-CKh"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="rqg-01-qWT" secondAttribute="bottom" constant="-1" id="FUC-u4-w29"/>
+                                        <constraint firstItem="rqg-01-qWT" firstAttribute="leading" secondItem="Vbe-6b-04Q" secondAttribute="leadingMargin" id="Fhw-Ou-2PZ"/>
+                                        <constraint firstItem="rqg-01-qWT" firstAttribute="top" secondItem="tQb-NC-Aid" secondAttribute="bottom" constant="8" symbolic="YES" id="MWI-SM-OOh"/>
+                                        <constraint firstItem="tQb-NC-Aid" firstAttribute="leading" secondItem="rqg-01-qWT" secondAttribute="leading" id="UDV-T7-fjS"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="inputText" destination="tQb-NC-Aid" id="H7z-kG-jfB"/>
@@ -48,8 +63,15 @@
                         <barButtonItem title="3 count of items" id="lKF-K0-rAJ"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Remind" id="m1K-mh-hyv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="UUY-tG-TAv"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="UUY-tG-TAv">
+                            <connections>
+                                <action selector="tapEditItem:" destination="qRN-Tp-UFw" id="hxN-VX-GaK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="statisticBarItem" destination="lKF-K0-rAJ" id="u5i-j3-nQv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y0W-RR-jDv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -209,7 +231,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZiU-P4-h1M" id="dS7-7X-0MW">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bugu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6h-d7-9Og">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6h-d7-9Og">
                                                     <rect key="frame" x="8" y="9" width="525" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -245,9 +267,12 @@
                     <connections>
                         <outlet property="dateTimePicker" destination="VVb-T6-4I1" id="z2C-Ro-7xQ"/>
                         <outlet property="repeatModeSegmentedControl" destination="ZZ3-CK-9Cp" id="xqe-71-pBd"/>
+                        <outlet property="soundCell" destination="ZiU-P4-h1M" id="7gd-d8-68y"/>
                         <outlet property="soundName" destination="K6h-d7-9Og" id="U2o-xl-4RV"/>
+                        <outlet property="soundSection" destination="vD1-F6-rpj" id="Evq-hC-1eH"/>
                         <outlet property="timeConfigState" destination="bbY-wE-3Uh" id="IN1-Sp-VDO"/>
                         <outlet property="timeConfigStatusLabel" destination="qrm-E0-hJv" id="mEz-BU-BS3"/>
+                        <outlet property="weekdaysEditButton" destination="GuV-5x-yL0" id="Fwm-0h-Lzu"/>
                         <outlet property="weekdaysLabel" destination="E0N-cF-RD3" id="fUn-fm-gcd"/>
                     </connections>
                 </tableViewController>
@@ -314,7 +339,6 @@
         <!--Weekdays-->
         <scene sceneID="O4R-Zn-Vbt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IWw-g8-JEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="XnW-Df-CgJ" customClass="NXWeekdaysTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ike-me-jOw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -352,6 +376,7 @@
                         <outlet property="saveButton" destination="Izc-6j-x6i" id="4rk-2D-Epj"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWw-g8-JEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2054" y="228"/>
         </scene>

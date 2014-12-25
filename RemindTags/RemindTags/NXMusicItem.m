@@ -52,7 +52,7 @@ static __strong NSMutableArray* musicLibraryItems = nil;
     
     for (NSURL* path in paths) {
         extName = [path pathExtension];
-        if ([extName isEqual: @"mp3"]) {
+        if ([extName isEqual: @"aif"]) {
             mediaFileName = [path lastPathComponent];
             comps = [mediaFileName componentsSeparatedByString:@"."];
 #if DEBUG
@@ -83,10 +83,18 @@ static __strong NSMutableArray* musicLibraryItems = nil;
     return result;
 }
 
-+ (NSString*)sourcePathOfMusicItem:(NSString*)fileName {
-    NSUInteger index = [NXMusicItem indexOfSoundItem:fileName];
++ (NSString*)sourceFullPathOfMusicItem:(NSString*)soundName {
+    NSUInteger index = [NXMusicItem indexOfSoundItem:soundName];
     NXMusicItem* musicItem = [musicLibraryItems objectAtIndex:index];
     return [musicItem.sourcePath absoluteString];
+}
+
++ (NSString*)sourceAppPathOfMusicItem:(NSString*)soundName {
+    NSUInteger index = [NXMusicItem indexOfSoundItem:soundName];
+    NXMusicItem* musicItem = [musicLibraryItems objectAtIndex:index];
+    NSString* fileNameWithExt = [[NSString alloc] initWithFormat:@"%@.aif",musicItem.fileName];
+
+    return fileNameWithExt;
 }
 
 - (instancetype)initWithName:(NSString *)name andSourcePath:(NSURL *)path {

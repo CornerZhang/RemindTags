@@ -15,7 +15,8 @@
 + (NSMutableArray*)buildLibrayItems;
 + (NXMusicItem*)defaultMusicItem;
 + (NSUInteger)indexOfSoundItem:(NSString*)name;
-+ (NSString*)sourcePathOfMusicItem:(NSString*)fileName;
++ (NSString*)sourceFullPathOfMusicItem:(NSString*)soundName;
++ (NSString*)sourceAppPathOfMusicItem:(NSString*)soundName;
 
 - (instancetype) initWithName:(NSString*)name andSourcePath:(NSURL*)path;
 - (NSString*) description;
