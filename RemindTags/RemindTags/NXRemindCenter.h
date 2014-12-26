@@ -60,6 +60,7 @@ typedef NS_ENUM(NSUInteger, NXWeekdays) {
 - (RemindItem*)	createBlankRemindItemWithDisplayOrder;
 - (RemindItem*)	createBlankRemindItem;
 - (void)		deleteRemindItem:(RemindItem*)item fromTag:(Tag*)tag;
+- (void)		moveRemindItemAtIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath;
 
 // save
 - (void)		saveContextWhenChanged;

@@ -89,7 +89,6 @@
             
             [[NXRemindCenter sharedInstance] saveContextWhenChanged];	// be cached to fetchController
             [[NXRemindTableViewController sharedInstance] updateStatistic];
-            //[currentRemindItemsViewController.itemsCount updateDisplay];
             
             textField.text = @"+";
         }

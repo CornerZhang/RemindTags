@@ -22,7 +22,7 @@
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="早起" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tQb-NC-Aid" customClass="NXRemindInputText">
                                             <rect key="frame" x="8" y="8" width="494" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                             <variation key="widthClass=regular" misplaced="YES">
                                                 <rect key="frame" x="8" y="8" width="694" height="36"/>
                                             </variation>
@@ -70,6 +70,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editBarItem" destination="UUY-tG-TAv" id="lCl-Lu-OZd"/>
                         <outlet property="statisticBarItem" destination="lKF-K0-rAJ" id="u5i-j3-nQv"/>
                     </connections>
                 </tableViewController>

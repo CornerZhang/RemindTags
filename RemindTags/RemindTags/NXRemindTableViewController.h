@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NXRemindTableViewController : UITableViewController
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *editBarItem;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *statisticBarItem;
 
 @property (strong, nonatomic) UIColor*	textNormalColor;

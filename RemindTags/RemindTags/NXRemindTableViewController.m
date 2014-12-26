@@ -13,15 +13,19 @@
 #import "NXRemindParametersTableViewController.h"
 #import <CoreData/CoreData.h>
 
+#define DEBUG 1
+
 @interface NXRemindTableViewController () <NSFetchedResultsControllerDelegate>
 @property (strong, nonatomic) NXRemindCenter* remindCenter;
 @property (assign, nonatomic) BOOL userDrivenDataModelChange;
 @property (assign, nonatomic) BOOL editState;
+@property (weak, nonatomic) NXRemindTableViewCell* selectedCell;
 @end
 
 static NXRemindTableViewController* only;
 
 @implementation NXRemindTableViewController
+@synthesize editBarItem;
 @synthesize statisticBarItem;
 @synthesize userDrivenDataModelChange;
 @synthesize textNormalColor;
@@ -71,15 +75,19 @@ static NXRemindTableViewController* only;
     // Dispose of any resources that can be recreated.
 }
 
+- (void)enableVisibleCells:(BOOL)enable {
+    for (UITableViewCell* cell in self.tableView.visibleCells) {
+        NXRemindTableViewCell* remindCell = (NXRemindTableViewCell*)cell;
+        remindCell.inputText.enabled = enable;
+    }
+}
+
 - (IBAction)tapEditItem:(UIBarButtonItem *)sender {
     editState = !editState;
     
     [self.tableView setEditing:editState animated:YES];
     
-    // last cell enable/disable
-    NSIndexPath* lastIndexPath = [NSIndexPath indexPathForRow:[_remindCenter numberOfItems] inSection:0];
-    NXRemindTableViewCell* lastCell = (NXRemindTableViewCell*)[self.tableView cellForRowAtIndexPath:lastIndexPath];
-    lastCell.inputText.enabled = !editState;
+    [self enableVisibleCells:!editState];
     
     // toolbar show/hidden
     UINavigationController* navigationController = self.navigationController;
@@ -156,7 +164,6 @@ static NXRemindTableViewController* only;
     return cell;
 }
 
-
 // 在编辑模式中
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
 #if DEBUG
@@ -165,12 +172,11 @@ static NXRemindTableViewController* only;
 
     if (editState) {
         [_remindCenter saveContext];
-
         if ( [self isForTailCell:indexPath] ) {
             return UITableViewCellEditingStyleNone;
+        }else{
+        	return UITableViewCellEditingStyleDelete;
         }
-        
-        return UITableViewCellEditingStyleDelete;
     }else{
 
         RemindItem* remindItem = [_remindCenter remindItemAtIndexPath:indexPath];
@@ -200,41 +206,49 @@ static NXRemindTableViewController* only;
     }
 }
 
-//-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-//    [fetchRemindItemsController moveRemindItemAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
-//    
-//    userDrivenDataModelChange = YES;
-//    [remindCenter saveContext];
-//    userDrivenDataModelChange = NO;
-//    
-//    [self performSelector:@selector(configureCellAtIndexPath:) withObject:sourceIndexPath afterDelay:0.2];
-//    [self performSelector:@selector(configureCellAtIndexPath:) withObject:destinationIndexPath afterDelay:0.2];
-//}
+// move cells
 
-//-(NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
-//    if (proposedDestinationIndexPath.row == [self numberOfRowsFirstSection]) {	// 禁止与tail cell做重排
-//        return sourceIndexPath;
-//    }
-//    
-//    return proposedDestinationIndexPath;
-//}
+- (void)configureCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    NXRemindTableViewCell* cell = (NXRemindTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    [self configureCell:cell atIndexPath:indexPath];
+}
 
-//-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if ([self isForTailCell:indexPath]) {
-//        return NO;
-//    }
-//    
-//    return YES;
-//}
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    [_remindCenter moveRemindItemAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
+    
+    userDrivenDataModelChange = YES;
+    [_remindCenter saveContext];
+    userDrivenDataModelChange = NO;
+    
+    [self performSelector:@selector(configureCellAtIndexPath:) withObject:sourceIndexPath afterDelay:0.2];
+    [self performSelector:@selector(configureCellAtIndexPath:) withObject:destinationIndexPath afterDelay:0.2];
+}
 
-//- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (indexPath.row == [self numberOfRowsFirstSection]) {
-//        return NO;
-//    }
-//    
-//    return YES;
-//}
+-(NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
+    if (proposedDestinationIndexPath.row == [_remindCenter numberOfItems]) {	// 禁止与tail cell做重排
+        return sourceIndexPath;
+    }
+    
+    return proposedDestinationIndexPath;
+}
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self isForTailCell:indexPath]) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == [_remindCenter numberOfItems]) {
+        return NO;
+    }
+    
+    return YES;
+}
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -265,9 +279,7 @@ static NXRemindTableViewController* only;
 }
 
 //- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//#if DEBUG
-//    NSLog(@"Running %@ '%@' -- setEditing", self.class, NSStringFromSelector(_cmd));
-//#endif
+//    _selectedCell = (NXRemindTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
 //}
 
 

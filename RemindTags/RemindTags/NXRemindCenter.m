@@ -210,6 +210,15 @@ static NXRemindCenter* only = nil;
     }
 }
 
+- (void)moveRemindItemAtIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath {
+    RemindItem* fromItem = [_itemFetchedController.fetchedObjects objectAtIndex:fromIndexPath.row];
+    RemindItem* toItem = [_itemFetchedController.fetchedObjects objectAtIndex:toIndexPath.row];
+    
+    NSNumber* temp = fromItem.displayOrder;
+    fromItem.displayOrder = toItem.displayOrder;
+    toItem.displayOrder = temp;
+}
+
 - (void)saveContextWhenChanged
 {
     NSError *error = nil;
