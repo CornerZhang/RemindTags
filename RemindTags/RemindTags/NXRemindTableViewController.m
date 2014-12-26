@@ -135,6 +135,7 @@ static NXRemindTableViewController* only;
         cell.inputText.text = @"+";
         cell.inputText.textColor = textTintColor;
 
+        cell.subTitle.text = nil;
         cell.subTitle.hidden = YES;
     }else{
         data = [_remindCenter remindItemAtIndexPath:indexPath];
