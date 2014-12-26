@@ -190,11 +190,11 @@ enum timeConfigState_e {
     if (show) {
 		_soundName.text = _currentItemData.soundName;
     }
+    _soundCell.accessoryType = show? UITableViewCellAccessoryDetailButton : UITableViewCellAccessoryNone;
     
     [UIView animateWithDuration:0.4
                      animations:^(void) {
                          _soundName.enabled = show;
-                         _soundCell.accessoryType = show? UITableViewCellAccessoryDetailButton : UITableViewCellAccessoryNone;
                          _soundCell.userInteractionEnabled = show;
     }
      ];
